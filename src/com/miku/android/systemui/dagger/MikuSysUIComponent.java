@@ -33,6 +33,7 @@ import com.android.systemui.statusbar.QsFrameTranslateModule;
 import com.android.systemui.unfold.SysUIUnfoldModule;
 import com.android.systemui.util.StartBinderLoggerModule;
 import com.android.systemui.wallpapers.dagger.WallpaperModule;
+import com.miku.android.systemui.volume.MikuVolumeModule;
 
 import dagger.Subcomponent;
 
@@ -57,7 +58,8 @@ import dagger.Subcomponent;
         SystemUICoreStartableModule.class,
         SysUIUnfoldModule.class,
         WallpaperModule.class,
-        MikuCoreStartableModule.class})
+        MikuCoreStartableModule.class,
+        MikuVolumeModule.class})
 public interface MikuSysUIComponent extends SysUIComponent {
 
     @SysUISingleton
