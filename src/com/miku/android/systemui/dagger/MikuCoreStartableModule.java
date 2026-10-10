@@ -17,6 +17,7 @@
 package com.miku.android.systemui.dagger;
 
 import com.android.systemui.CoreStartable;
+import com.miku.android.systemui.lockscreen.LockscreenMediaArtController;
 import com.miku.android.systemui.smartpixels.SmartPixelsReceiver;
 
 import dagger.Binds;
@@ -31,4 +32,10 @@ public abstract class MikuCoreStartableModule {
     @IntoMap
     @ClassKey(SmartPixelsReceiver.class)
     abstract CoreStartable bindSmartPixelsReceiver(SmartPixelsReceiver receiver);
+
+    @Binds
+    @IntoMap
+    @ClassKey(LockscreenMediaArtController.class)
+    abstract CoreStartable bindLockscreenMediaArtController(
+            LockscreenMediaArtController controller);
 }
