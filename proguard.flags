@@ -1,0 +1,10 @@
+-include ../../../../frameworks/base/packages/SystemUI/proguard.flags
+-include ../../../../frameworks/base/packages/SystemUI/proguard_kotlin.flags
+
+-keep class com.miku.android.systemui.MikuSystemUIInitializer {
+    *;
+}
+
+-keep,allowoptimization,allowaccessmodification class com.miku.android.systemui.dagger.DaggerMikuGlobalRootComponent** { !synthetic *; }
+
+-keep class com.miku.** { *; }

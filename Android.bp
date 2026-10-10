@@ -1,0 +1,79 @@
+//
+// Copyright (C) 2026 Miku UI
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+
+package {
+    default_applicable_licenses: ["Android-Apache-2.0"],
+}
+
+android_library {
+    name: "MikuSystemUI-core",
+    srcs: [
+        "src/**/*.java",
+        "src/**/*.kt",
+    ],
+    static_libs: [
+        "SystemUI-application",
+        "SystemUI-core",
+        "SystemUIPluginLib",
+        "SystemUISharedLib",
+    ],
+    javacflags: [
+        "-Adagger.fastInit=enabled",
+        "-Adagger.useBindingGraphFix=ENABLED",
+    ],
+    annotation_processor_flags: [
+        "dagger.fastInit=enabled",
+        "dagger.explicitBindingConflictsWithInject=ERROR",
+        "dagger.strictMultibindingValidation=enabled",
+        "dagger.useBindingGraphFix=ENABLED",
+    ],
+    platform_apis: true,
+    system_ext_specific: true,
+    manifest: "AndroidManifest.xml",
+    plugins: ["dagger2-compiler"],
+}
+
+android_app {
+    name: "MikuSystemUI",
+    defaults: [
+        "platform_app_defaults",
+        "SystemUI_optimized_defaults",
+        "wmshell_defaults",
+    ],
+    static_libs: [
+        "MikuSystemUI-core",
+    ],
+    overrides: [
+        "SystemUI",
+    ],
+    resource_dirs: [],
+    use_resource_processor: true,
+
+    platform_apis: true,
+    system_ext_specific: true,
+    certificate: "platform",
+    privileged: true,
+
+    kotlincflags: ["-Xjvm-default=all"],
+
+    dxflags: ["--multi-dex"],
+    optimize: {
+        proguard_flags_files: ["proguard.flags"],
+    },
+    required: [
+        "privapp_whitelist_com.android.systemui",
+    ],
+}
