@@ -1,4 +1,4 @@
--include ../../../../frameworks/base/packages/SystemUI/proguard_common.flags
+-include ../../../frameworks/base/packages/SystemUI/proguard_common.flags
 
 -keep class com.miku.android.systemui.MikuSystemUIInitializer {
     *;
