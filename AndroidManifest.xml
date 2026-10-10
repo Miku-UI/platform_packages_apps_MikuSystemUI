@@ -24,5 +24,11 @@
 
     <application
         android:appComponentFactory="com.miku.android.systemui.MikuSystemUIAppComponentFactory"
-        tools:replace="android:appComponentFactory" />
+        tools:replace="android:appComponentFactory">
+        <service
+            android:name="com.miku.android.systemui.smartpixels.SmartPixelsService"
+            android:directBootAware="true"
+            android:enabled="true"
+            android:exported="false" />
+    </application>
 </manifest>

@@ -16,8 +16,19 @@
 
 package com.miku.android.systemui.dagger;
 
-import dagger.Module;
+import com.android.systemui.CoreStartable;
+import com.miku.android.systemui.smartpixels.SmartPixelsReceiver;
 
-/** Miku {@link com.android.systemui.CoreStartable} bindings. Empty in the variant shell. */
+import dagger.Binds;
+import dagger.Module;
+import dagger.multibindings.ClassKey;
+import dagger.multibindings.IntoMap;
+
+/** Miku {@link com.android.systemui.CoreStartable} bindings. */
 @Module
-public abstract class MikuCoreStartableModule {}
+public abstract class MikuCoreStartableModule {
+    @Binds
+    @IntoMap
+    @ClassKey(SmartPixelsReceiver.class)
+    abstract CoreStartable bindSmartPixelsReceiver(SmartPixelsReceiver receiver);
+}
