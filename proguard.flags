@@ -1,6 +1,3 @@
--include ../../../../frameworks/base/packages/SystemUI/proguard.flags
--include ../../../../frameworks/base/packages/SystemUI/proguard_kotlin.flags
-
 -keep class com.miku.android.systemui.MikuSystemUIInitializer {
     *;
 }
