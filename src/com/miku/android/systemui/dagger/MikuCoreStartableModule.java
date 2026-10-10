@@ -17,6 +17,7 @@
 package com.miku.android.systemui.dagger;
 
 import com.android.systemui.CoreStartable;
+import com.miku.android.systemui.emptyshade.EmptyShadeMascotController;
 import com.miku.android.systemui.lockscreen.LockscreenMediaArtController;
 import com.miku.android.systemui.smartpixels.SmartPixelsReceiver;
 
@@ -38,4 +39,9 @@ public abstract class MikuCoreStartableModule {
     @ClassKey(LockscreenMediaArtController.class)
     abstract CoreStartable bindLockscreenMediaArtController(
             LockscreenMediaArtController controller);
+
+    @Binds
+    @IntoMap
+    @ClassKey(EmptyShadeMascotController.class)
+    abstract CoreStartable bindEmptyShadeMascotController(EmptyShadeMascotController controller);
 }
